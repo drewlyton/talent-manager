@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+import { updateCSV } from "../updateCSV";
 
 export const POST: APIRoute = async ({ request }) => {
   const data = await request.formData();
@@ -23,7 +24,7 @@ export const POST: APIRoute = async ({ request }) => {
       { status: 200 },
     );
 
-  // Do something with the data, then return a success response
+  updateCSV(email.toString());
   return new Response(
     JSON.stringify({
       message: "Success!",

@@ -20,6 +20,8 @@ type GitRef = {
 
 const path = env.PROD ? "emails.csv" : "emails-test.csv";
 
+// Function that updates a remote CSV file
+// stored in a Github repository
 export async function updateCSV(email: string) {
   const getFile = await octokit.request(
     "GET /repos/{owner}/{repo}/contents/{path}",
