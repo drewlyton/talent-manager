@@ -6,4 +6,4 @@ const envSchema = z.object({
   GITHUB_REPO_NAME: z.string().nonempty(),
 });
 
-export const env = envSchema.parse(Bun.env);
+export const env = envSchema.parse(process.env);
