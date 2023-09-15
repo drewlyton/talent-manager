@@ -8,28 +8,28 @@ export const prerender = true;
 
 <Layout>
   <main class="text-white text-lg leading-5">
-    <div class="h-[95vh] flex flex-col">
-      <div class="py-5 pb-0 container">
-        <h1 class="text-7xl font-bold mb-8">
-          A Talent Manager for Every Creator
-        </h1>
-        <p class="text-3xl mb-4 text-slate-200">
-          Repbot does 80% of what a talent manager does - without taking a 20%
-          commission on your brand deals.
-        </p>
-        <p class="text-3xl text-slate-200">
-          We qualify your inbound leads, negotiate better rates, and help you
-          spend more time on the creative part of being a creator.
-          <u>All for free</u>.
-        </p>
+    <div class="h-[calc(95vh-60px)] flex flex-col">
+      <div class="flex-1 flex flex-col lg:justify-center">
+        <div class="py-5 pb-0 container xl:text-center">
+          <h1 class="text-7xl font-bold mb-8">
+            A Talent Manager for Every Creator
+          </h1>
+          <p class="text-3xl mb-4 text-slate-200">
+            Repbot does 80% of what a talent manager does - without taking a 20%
+            commission on your brand deals.
+          </p>
+          <p class="text-3xl text-slate-200">
+            We qualify your inbound leads, negotiate better rates, and help you
+            spend more time on the creative part of being a creator.
+            <u>All for free</u>.
+          </p>
+        </div>
+        <div class="py-10 container xl:flex xl:flex-col xl:items-center">
+          <h3 class="text-xl uppercase font-bold mb-4">👇 Join The Waitlist</h3>
+          <WaitlistForm client:load />
+        </div>
       </div>
-      <div class="py-10 container">
-        <h3 class="text-xl uppercase font-bold mb-4">👇 Join The Waitlist</h3>
-        <WaitlistForm client:load />
-      </div>
-      <div
-        class="flex-1 container flex flex-col justify-end mb-5 font-bold text-slate-300"
-      >
+      <div class="container mb-5 font-bold text-slate-300">
         We exist to help you...
       </div>
     </div>
