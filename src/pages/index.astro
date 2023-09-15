@@ -1,15 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import WaitlistForm from "../components/WaitlistForm";
+import "../styles/global.css";
 
 export const prerender = true;
 ---
 
 <Layout>
   <main>
-    <div><h1>Maximize Your Brand Deal Revenue</h1></div>
+    <div><h1>A Talent Manager for Every Creator</h1></div>
     <div>
-      <WaitlistForm client:load /> Test
+      <WaitlistForm client:load />
     </div>
   </main>
 </Layout>
