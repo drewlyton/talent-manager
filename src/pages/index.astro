@@ -7,72 +7,90 @@ export const prerender = true;
 ---
 
 <Layout>
-  <main>
-    <div><h1>A Talent Manager for Every Creator</h1></div>
-    <div>
-      <WaitlistForm client:load />
+  <main class="text-white text-lg leading-5">
+    <div class="h-[95vh] flex flex-col">
+      <div class="py-5 pb-0 container">
+        <h1 class="text-7xl font-bold mb-8">
+          A Talent Manager for Every Creator
+        </h1>
+        <p class="text-3xl mb-4 text-slate-200">
+          Repbot does 80% of what a talent manager does - without taking a 20%
+          commission on your brand deals.
+        </p>
+        <p class="text-3xl text-slate-200">
+          We qualify your inbound leads, negotiate better rates, and help you
+          spend more time on the creative part of being a creator.
+          <u>All for free</u>.
+        </p>
+      </div>
+      <div class="py-10 container">
+        <h3 class="text-xl uppercase font-bold mb-4">👇 Join The Waitlist</h3>
+        <WaitlistForm client:load />
+      </div>
+      <div
+        class="flex-1 container flex flex-col justify-end mb-5 font-bold text-slate-300"
+      >
+        We exist to help you...
+      </div>
+    </div>
+    <div class="container py-6 flex flex-col justify-center mb-12 mt-2">
+      <h2 class="text-4xl font-bold mb-4">
+        👋 Say Goodbye to Sh*t Affiliate Deals from Russian Mobile Game
+        Spammers.
+      </h2>
+      <p class="text-xl leading-8 text-slate-200">
+        Repbot asks brands for the important deal details <i>upfront</i>. This
+        enables you to filter out the noise before it ever reaches your inbox.
+        No more wasting time scouring the internet trying to see if a company or
+        product is legit. And if you never want to see another affiliate deal in
+        your life, now you don't have to.
+      </p>
+    </div>
+    <div class="container py-6 mb-12">
+      <h2 class="text-4xl font-bold mb-4">
+        💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
+        Negotiator.
+      </h2>
+      <p class="text-xl leading-8 text-slate-200">
+        Repbot asks brand for their budget and negotiates on your behalf if we
+        think their offer is too low. We use a holistic approach to negotiation
+        that takes into account your minimum rate, social metrics, and data from
+        past deals across all creators using Repbot. However, brands are still
+        in control of their offer at the end of the day - our goal in
+        negotiation is simply to advocate for fair pay.
+      </p>
+    </div>
+    <div class="container py-6 mb-12">
+      <h2 class="text-4xl font-bold mb-4">
+        👀 Compare Deals at a Glance. Accept the Best Fit. And Get Back to Work.
+      </h2>
+      <p class="text-xl leading-8 text-slate-200">
+        Repbot give you an easy way to read and review your inbound brand deals.
+        When one catches your eye, all you have to do is hit "Reply". Then, we
+        get out of the way and let you handle communication, contracting,
+        invoicing and payment with the tools you already use to run your
+        business.
+      </p>
+    </div>
+    <div class="container py-6 mb-12">
+      <h2 class="text-4xl font-bold mb-4">
+        🔥 Fire Us Whenever. We're Free Forever.
+      </h2>
+      <p class="text-xl leading-8 text-slate-200">
+        Repbot exists so that you never have to sign with a manager that will
+        take 15% of your business in exchange for barely managing your email
+        inbox. But if better representation comes along, we want you to take it.
+        No fees. No contractural obligations or early exist clauses. We see
+        ourselves as a stepping stone to an agency that will help you with
+        outbound, hiring, and product development if that's the route you choose
+        to go with your business.
+      </p>
     </div>
   </main>
 </Layout>
 
 <style>
   main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
+    text-wrap: balance;
   }
 </style>

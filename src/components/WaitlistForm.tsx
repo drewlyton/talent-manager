@@ -1,4 +1,6 @@
 import { useState, type FormEvent } from "react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export default function WaitlistForm() {
   const [responseMessage, setResponseMessage] = useState("");
@@ -21,21 +23,21 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={submit}>
-      <fieldset disabled={disabled}>
-        <label aria-label="Your email">
-          <input
+    <form onSubmit={submit} className="max-w-lg w-full">
+      <fieldset disabled={disabled} className="flex flex-row gap-3">
+        <label aria-label="Your email" className="w-full">
+          <Input
             type="email"
             name="email"
-            placeholder="email"
-            className="text-black"
+            placeholder="Your Email"
+            className="text-lg h-full"
             required
           />
         </label>
-        <button>Submit</button>
+        <Button size={"lg"}>Submit</Button>
         <Honeypot />
-        {responseMessage && <p>{responseMessage}</p>}
       </fieldset>
+      {responseMessage && <p>{responseMessage}</p>}
     </form>
   );
 }
