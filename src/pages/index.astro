@@ -1,41 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Paragraph from "../components/landing/Paragraph.astro";
-import WaitlistForm from "../components/WaitlistForm";
+import Hero from "../components/landing/Hero.astro";
+import FAQ from "../components/landing/FAQ.tsx";
 import "../styles/global.css";
 
 export const prerender = true;
 ---
 
 <Layout>
-  <main class="text-white text-lg leading-5">
-    <div class="min-h-[calc(95vh-60px)] flex flex-col">
-      <div class="flex-1 flex flex-col lg:justify-center">
-        <div class="py-5 pb-0 container xl:text-center">
-          <h1 class="text-6xl md:text-7xl font-bold mb-8">
-            A Talent Manager for Every Creator
-          </h1>
-          <p class="text-2xl md:text-3xl mb-4 text-slate-200">
-            <code>Repbot</code> does 80% of what a talent manager does - <b
-              ><i>without</i></b
-            >
-             taking a 20% commission on your brand deals.
-          </p>
-          <p class="text-2xl md:text-3xl mb-4 text-slate-200">
-            We qualify your inbound leads, negotiate better rates, and help you
-            spend more time on the creative part of being a creator.
-          </p>
-        </div>
-        <div class="py-10 container xl:flex xl:flex-col xl:items-center">
-          <h3 class="text-xl uppercase font-bold mb-4">👇 Join The Waitlist</h3>
-          <WaitlistForm client:load />
-        </div>
-      </div>
-      <div class="container mb-5 font-bold text-slate-300">
-        We exist to help you...
-      </div>
-    </div>
-    <div class="container py-6 flex flex-col justify-center mb-12 mt-2">
+  <main class="text-white text-lg">
+    <Hero />
+    <div
+      class="container-small py-6 flex flex-col justify-center mb-12 mt-2 wrap-balance"
+    >
       <h2 class="text-4xl font-bold mb-4">
         👋 Say Goodbye to Sh*t Affiliate Deals from Russian Mobile Game
         Spammers.
@@ -43,7 +21,8 @@ export const prerender = true;
       <Paragraph>
         <code>Repbot</code> asks brands for the important deal details <i
           >upfront</i
-        >. This enables you to filter out the noise when viewing your inbox.
+        >. This enables you to filter out the noise when viewing your inbound
+        offers.
       </Paragraph>
       <Paragraph>
         No more wasting time scouring the internet trying to see if a company or
@@ -51,7 +30,7 @@ export const prerender = true;
         your life, hiding them is just a click away.
       </Paragraph>
     </div>
-    <div class="container py-6 mb-12">
+    <div class="container-small py-6 mb-12 wrap-balance">
       <h2 class="text-4xl font-bold mb-4">
         💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
         Negotiator.
@@ -66,7 +45,7 @@ export const prerender = true;
         take them - our goal in negotiation is simply to advocate for fair pay.
       </Paragraph>
     </div>
-    <div class="container py-6 mb-12">
+    <div class="container-small py-6 mb-12 wrap-balance">
       <h2 class="text-4xl font-bold mb-4">
         👀 Compare Deals at a Glance, Accept the Best Fit, & Get Back to Work.
       </h2>
@@ -81,7 +60,7 @@ export const prerender = true;
         your business.
       </Paragraph>
     </div>
-    <div class="container py-6 mb-12">
+    <div class="container-small py-6 mb-12 wrap-balance">
       <h2 class="text-4xl font-bold mb-4">🔥 Fire Us Whenever.</h2>
       <Paragraph>
         <code>Repbot</code> exists so that you never have to sign with a manager
@@ -93,11 +72,18 @@ export const prerender = true;
         <b>No fees. No contractural obligations. No early exit clauses.</b>
       </Paragraph>
     </div>
+    <div class="py-6 mb-12 container-small">
+      <h2 class="text-4xl font-bold mb-4">🤔 FAQs</h2>
+      <FAQ client:visible />
+    </div>
   </main>
 </Layout>
 
-<style>
-  main {
+<style is:global>
+  .wrap-balance {
     text-wrap: balance;
+  }
+  .container-small {
+    @apply px-8 mx-auto max-w-3xl w-full;
   }
 </style>
