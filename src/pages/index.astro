@@ -3,18 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Paragraph from "../components/landing/Paragraph.astro";
 import Hero from "../components/landing/Hero.astro";
 import FAQ from "../components/landing/FAQ.tsx";
-import "../styles/global.css";
 
 export const prerender = true;
 ---
 
 <Layout>
-  <main class="text-white text-lg">
+  <main class="dark:text-white text-lg">
     <Hero />
     <div
       class="container-small py-6 flex flex-col justify-center mb-12 mt-2 wrap-balance"
     >
-      <h2 class="text-4xl font-bold mb-4">
+      <h2 class="text-5xl font-bold mb-4">
         👋 Say Goodbye to Sh*t Affiliate Deals from Russian Mobile Game
         Spammers.
       </h2>
@@ -31,7 +30,7 @@ export const prerender = true;
       </Paragraph>
     </div>
     <div class="container-small py-6 mb-12 wrap-balance">
-      <h2 class="text-4xl font-bold mb-4">
+      <h2 class="text-5xl font-bold mb-4">
         💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
         Negotiator.
       </h2>
@@ -46,13 +45,13 @@ export const prerender = true;
       </Paragraph>
     </div>
     <div class="container-small py-6 mb-12 wrap-balance">
-      <h2 class="text-4xl font-bold mb-4">
-        👀 Compare Deals at a Glance, Accept the Best Fit, & Get Back to Work.
+      <h2 class="text-5xl font-bold mb-4">
+        ⚖️ Compare Deals at a Glance, Accept the Best Fit, & Get Back to Work.
       </h2>
       <Paragraph>
-        <code>Repbot</code> give you an easy way to read and review your inbound
-        brand deals. When one catches your eye, all you have to do is hit
-        "Reply".
+        <code>Repbot</code> gives you an easy way to read and review your
+        inbound brand deals. When one catches your eye, all you have to do is
+        hit "Reply".
       </Paragraph>
       <Paragraph>
         Then, we get out of the way and let you handle communication,
@@ -61,7 +60,7 @@ export const prerender = true;
       </Paragraph>
     </div>
     <div class="container-small py-6 mb-12 wrap-balance">
-      <h2 class="text-4xl font-bold mb-4">🔥 Fire Us Whenever.</h2>
+      <h2 class="text-5xl font-bold mb-4">🔥 Fire Us Whenever.</h2>
       <Paragraph>
         <code>Repbot</code> exists so that you never have to sign with a manager
         that will take 15% of your business in exchange for barely managing your
@@ -84,6 +83,6 @@ export const prerender = true;
     text-wrap: balance;
   }
   .container-small {
-    @apply px-8 mx-auto max-w-3xl w-full;
+    @apply px-8 mx-auto max-w-4xl w-full;
   }
 </style>

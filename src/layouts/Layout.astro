@@ -1,5 +1,9 @@
+---
+import "../styles/global.css";
+---
+
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -8,11 +12,23 @@
     <meta name="generator" content={Astro.generator} />
     <title>Repbot</title>
   </head>
-  <body class="dark:bg-slate-900 dark:text-white">
-    <nav class="h-[60px] border-b border-slate-400 flex items-center container">
-      Repbot
+  <body class="dark:bg-slate-900 bg-slate-100 dark:text-white">
+    <nav
+      class="h-[60px] lg:h-[70px] border-b border-slate-400 flex items-center container font-mono text-sm"
+    >
+      <div class="flex-1"><a href="/" class="text-base">Repbot</a></div>
+      <div class="flex items-center gap-6">
+        <a href="/about">about</a>
+        <a href="/roadmap">roadmap</a>
+        <a href="/roadmap">discord</a>
+      </div>
     </nav>
     <slot />
+    <footer class="container text-center min-h-[40px] font-mono text-sm">
+      Made with ❤️ by <a href="/about" class="underline"
+        >some digital radicals</a
+      >.
+    </footer>
   </body>
 </html>
 <style is:global>

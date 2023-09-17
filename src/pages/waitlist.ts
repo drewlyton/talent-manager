@@ -8,7 +8,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (!email) {
     return new Response(
       JSON.stringify({
-        message: "Missing required fields",
+        message: "Whoops! Please provide a valid email.",
       }),
       { status: 400 },
     );
@@ -27,7 +27,8 @@ export const POST: APIRoute = async ({ request }) => {
   updateCSV(email.toString());
   return new Response(
     JSON.stringify({
-      message: "Success!",
+      message:
+        "Welcome to the waitlist! Please check your email for more information about getting started with Repbot.",
     }),
     { status: 200 },
   );

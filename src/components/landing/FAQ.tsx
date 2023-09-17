@@ -12,8 +12,8 @@ export default function FAQ() {
         <AccordionTrigger>How much does Repbot cost?</AccordionTrigger>
         <AccordionContent>
           <p className="mb-3">
-            Our goal is for Repbot to be completely free to use with no paid add
-            ons or usage tiers. However, giving away stuff for free does not
+            Our goal is for Repbot to be completely free to use with no paid
+            add-ons or usage tiers. However, giving away stuff for free does not
             make for financial sustainability, and we want to make sure you can
             rely on Repbot to help you run your business for a long time.
           </p>
@@ -103,11 +103,17 @@ export default function FAQ() {
             process automation.
           </p>
 
-          <p>
+          <p className="mb-3">
             In terms of invoicing and payment, we believe that there are more
             specialized, secure, and cheaper alternatives creators have access
             to that can provide a better experience than we have the resources
-            to build.
+            to build at this time.
+          </p>
+          <p>
+            ☝️ However, as mentioned above, Repbot's cooperative structure means
+            that if you, the <i>member-owners</i> of Repbot vote to dedicate
+            time to this or any other problem, that's what the organization will
+            focus on. This is <i>your</i> company.
           </p>
         </AccordionContent>
       </AccordionItem>

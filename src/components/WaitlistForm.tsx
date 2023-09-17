@@ -37,7 +37,7 @@ export default function WaitlistForm() {
         <Button size={"lg"}>Submit</Button>
         <Honeypot />
       </fieldset>
-      {responseMessage && <p>{responseMessage}</p>}
+      {responseMessage && <p className="mb-3 text-sm">{responseMessage}</p>}
     </form>
   );
 }
