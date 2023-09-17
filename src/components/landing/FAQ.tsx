@@ -111,7 +111,7 @@ export default function FAQ() {
           </p>
           <p>
             ☝️ However, as mentioned above, Repbot's cooperative structure means
-            that if you, the <i>member-owners</i> of Repbot vote to dedicate
+            that if you, the <i>member-owners</i> of Repbot, vote to dedicate
             time to this or any other problem, that's what the organization will
             focus on. This is <i>your</i> company.
           </p>
