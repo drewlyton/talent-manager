@@ -86,6 +86,31 @@ export default function FAQ() {
           </p>
         </AccordionContent>
       </AccordionItem>
+      <AccordionItem value="contracting">
+        <AccordionTrigger>
+          Does Repbot handle contracts/invoicing/payment?
+        </AccordionTrigger>
+        <AccordionContent>
+          <p className="mb-3">
+            We do not currently plan on ever handling these aspects of your deal
+            flow.
+          </p>
+
+          <p className="mb-3">
+            We understand that there are serious problems with contracting when
+            self-managing - like predatory licensing terms - but we feel these
+            are problems best solved with educational material rather than
+            process automation.
+          </p>
+
+          <p>
+            In terms of invoicing and payment, we believe that there are more
+            specialized, secure, and cheaper alternatives creators have access
+            to that can provide a better experience than we have the resources
+            to build.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
     </Accordion>
   );
 }
