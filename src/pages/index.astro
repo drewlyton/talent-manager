@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Paragraph from "../components/landing/Paragraph.astro";
 import Hero from "../components/landing/Hero.astro";
 import FAQ from "../components/landing/FAQ.tsx";
+import WaitlistForm from "@/components/WaitlistForm";
 
 export const prerender = true;
 ---
@@ -10,68 +11,84 @@ export const prerender = true;
 <Layout>
   <main class="dark:text-white text-lg">
     <Hero />
+    <div class="flex flex-col gap-16 mb-16">
+      <div
+        class="container-small py-6 flex flex-col justify-center mt-2 wrap-balance"
+      >
+        <h2 class="text-5xl font-bold mb-4">
+          👋 Say Goodbye to Sh*t Affiliate Deals from Russian Mobile Game
+          Spammers.
+        </h2>
+        <Paragraph>
+          <code>Repbot</code> asks brands for the important deal details <i
+            >upfront</i
+          >. This enables you to filter out the noise when viewing your inbound
+          offers.
+        </Paragraph>
+        <Paragraph>
+          No more wasting time scouring the internet trying to see if a company
+          or product is legit. And if you never want to see another affiliate
+          deal in your life, hiding them is just a click away.
+        </Paragraph>
+      </div>
+      <div class="container-small py-6 wrap-balance">
+        <h2 class="text-5xl font-bold mb-4">
+          💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
+          Negotiator.
+        </h2>
+        <Paragraph>
+          <code>Repbot</code> automatically negotiates higher rates from brands
+          on your behalf. You tell us your minimum rate and social stats, and
+          we'll use previous deal data to get you the best offer possible.
+        </Paragraph>
+        <Paragraph>
+          Brands can still submit offers below industry standard and you can
+          still take them - our goal in negotiation is simply to advocate for
+          fair pay.
+        </Paragraph>
+      </div>
+      <div class="container-small py-6 wrap-balance">
+        <h2 class="text-5xl font-bold mb-4">
+          ⚖️ Compare Deals at a Glance, Accept the Best Fit, & Get Back to Work.
+        </h2>
+        <Paragraph>
+          <code>Repbot</code> gives you an easy way to read and review your
+          inbound brand deals. When one catches your eye, all you have to do is
+          hit "Reply".
+        </Paragraph>
+        <Paragraph>
+          Then, we get out of the way and let you handle communication,
+          contracting, invoicing and payment with the tools you already use to
+          run your business.
+        </Paragraph>
+      </div>
+      <div class="container-small py-6 wrap-balance">
+        <h2 class="text-5xl font-bold mb-4">🔥 Fire Us Whenever.</h2>
+        <Paragraph>
+          <code>Repbot</code> exists so that you never have to sign with a
+          manager that will take 15% of your business in exchange for barely
+          managing your email inbox. But if better representation comes along,
+          we want you to take it.
+        </Paragraph>
+        <Paragraph>
+          <b>No fees. No contractural obligations. No early exit clauses.</b>
+        </Paragraph>
+      </div>
+    </div>
     <div
-      class="container-small py-6 flex flex-col justify-center mb-12 mt-2 wrap-balance"
+      class="bg-slate-800 text-white dark py-24 flex flex-col items-center gap-6"
     >
-      <h2 class="text-5xl font-bold mb-4">
-        👋 Say Goodbye to Sh*t Affiliate Deals from Russian Mobile Game
-        Spammers.
-      </h2>
-      <Paragraph>
-        <code>Repbot</code> asks brands for the important deal details <i
-          >upfront</i
-        >. This enables you to filter out the noise when viewing your inbound
-        offers.
-      </Paragraph>
-      <Paragraph>
-        No more wasting time scouring the internet trying to see if a company or
-        product is legit. And if you never want to see another affiliate deal in
-        your life, hiding them is just a click away.
-      </Paragraph>
+      <h1 class="text-6xl font-bold text-center wrap-balance">
+        🥊 You Deserve To Have Someone In Your Corner.
+      </h1>
+      <h3 class="text-2xl text-center wrap-balance">
+        Join a community that's fighting for your business.
+      </h3>
+      <div class="w-full flex justify-center mt-4">
+        <WaitlistForm client:visible />
+      </div>
     </div>
-    <div class="container-small py-6 mb-12 wrap-balance">
-      <h2 class="text-5xl font-bold mb-4">
-        💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
-        Negotiator.
-      </h2>
-      <Paragraph>
-        <code>Repbot</code> automatically negotiates higher rates from brands on
-        your behalf. You tell us your minimum rate and social stats, and we'll
-        use previous deal data to get you the best offer possible.
-      </Paragraph>
-      <Paragraph>
-        Brands can still submit offers below industry standard and you can still
-        take them - our goal in negotiation is simply to advocate for fair pay.
-      </Paragraph>
-    </div>
-    <div class="container-small py-6 mb-12 wrap-balance">
-      <h2 class="text-5xl font-bold mb-4">
-        ⚖️ Compare Deals at a Glance, Accept the Best Fit, & Get Back to Work.
-      </h2>
-      <Paragraph>
-        <code>Repbot</code> gives you an easy way to read and review your
-        inbound brand deals. When one catches your eye, all you have to do is
-        hit "Reply".
-      </Paragraph>
-      <Paragraph>
-        Then, we get out of the way and let you handle communication,
-        contracting, invoicing and payment with the tools you already use to run
-        your business.
-      </Paragraph>
-    </div>
-    <div class="container-small py-6 mb-12 wrap-balance">
-      <h2 class="text-5xl font-bold mb-4">🔥 Fire Us Whenever.</h2>
-      <Paragraph>
-        <code>Repbot</code> exists so that you never have to sign with a manager
-        that will take 15% of your business in exchange for barely managing your
-        email inbox. But if better representation comes along, we want you to
-        take it.
-      </Paragraph>
-      <Paragraph>
-        <b>No fees. No contractural obligations. No early exit clauses.</b>
-      </Paragraph>
-    </div>
-    <div class="py-6 mb-12 container-small">
+    <div class="py-6 container-small mt-6">
       <h2 class="text-4xl font-bold mb-4">🤔 FAQs</h2>
       <FAQ client:visible />
     </div>

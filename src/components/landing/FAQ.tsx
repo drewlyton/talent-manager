@@ -1,3 +1,4 @@
+import { DISCORD_LINK, GITHUB_LINK } from "@/constants";
 import {
   Accordion,
   AccordionContent,
@@ -69,7 +70,11 @@ export default function FAQ() {
             The details of exactly <i>how</i> this cooperative structure is
             going to work is still under active development. This is a way of
             doing business on the internet that we{" "}
-            <a href="https://start.coop" target="_blank">
+            <a
+              href="https://start.coop"
+              target="_blank"
+              className="underline opacity-80"
+            >
               and a few other companies
             </a>{" "}
             are pioneering. So, we appreciate your patience as we try to model a
@@ -79,7 +84,11 @@ export default function FAQ() {
           <p>
             And if you're excited by this concept and want to help us fill in
             the blanks,{" "}
-            <a href="!#" target="_blank">
+            <a
+              href={DISCORD_LINK}
+              target="_blank"
+              className="underline opacity-80"
+            >
               join our Discord server
             </a>
             .
@@ -114,6 +123,27 @@ export default function FAQ() {
             that if you, the <i>member-owners</i> of Repbot, vote to dedicate
             time to this or any other problem, that's what the organization will
             focus on. This is <i>your</i> company.
+          </p>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="opensource">
+        <AccordionTrigger>Is Repbot open source?</AccordionTrigger>
+        <AccordionContent>
+          <p className="mb-3">
+            Yes! The code for Repbot is completely open source and available{" "}
+            <a href={GITHUB_LINK} className="underline hover:opacity-80">
+              on Github
+            </a>
+            .
+          </p>
+
+          <p>
+            If you're interested in contributing to Repbot's codebase, please
+            reach out to us{" "}
+            <a href={DISCORD_LINK} className="underline hover:opacity-80">
+              on Discord
+            </a>
+            .
           </p>
         </AccordionContent>
       </AccordionItem>

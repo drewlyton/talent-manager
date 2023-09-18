@@ -1,9 +1,10 @@
 ---
+import { DISCORD_LINK, GITHUB_LINK } from "@/constants";
 import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en" class="">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -18,14 +19,13 @@ import "../styles/global.css";
     >
       <div class="flex-1"><a href="/" class="text-base">Repbot</a></div>
       <div class="flex items-center gap-6">
-        <a href="/about">about</a>
+        <!-- <a href="/about">about</a> -->
         <!-- <a href="/roadmap">roadmap</a> -->
-        <a href="/roadmap">code</a>
-        <a href="/roadmap">discord</a>
+        <a href={DISCORD_LINK} target="_blank">discord</a>
       </div>
     </nav>
     <slot />
-    <footer class="container text-center min-h-[40px] font-mono text-sm">
+    <footer class="container text-center min-h-[40px] font-mono text-sm py-3">
       Made with ❤️ by some internet radicals.
     </footer>
   </body>

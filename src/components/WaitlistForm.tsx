@@ -34,7 +34,9 @@ export default function WaitlistForm() {
             required
           />
         </label>
-        <Button size={"lg"}>Submit</Button>
+        <Button size={"lg"} className="whitespace-nowrap">
+          Sign Up
+        </Button>
         <Honeypot />
       </fieldset>
       {responseMessage && <p className="mb-3 text-sm">{responseMessage}</p>}
