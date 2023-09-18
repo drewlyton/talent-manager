@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
   return new Response(
     JSON.stringify({
       message:
-        "Welcome to the waitlist! Please check your email for more information about getting started with Repbot.",
+        "🎉 Welcome to the waitlist! Please check your email for more information about getting started with Repbot.",
     }),
     { status: 200 },
   );
