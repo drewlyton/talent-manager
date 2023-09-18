@@ -76,10 +76,12 @@ export const prerender = true;
       </div>
     </div>
     <div
-      class="bg-slate-800 text-white dark py-24 flex flex-col items-center gap-6"
+      class="bg-slate-800 text-white dark py-24 px-2 flex flex-col items-center gap-6"
     >
-      <h1 class="text-6xl font-bold text-center wrap-balance">
-        🥊 You Deserve To Have Someone In Your Corner.
+      <h1
+        class="text-5xl lg:text-6xl font-bold text-center wrap-balance max-w-4xl"
+      >
+        🥊 You Deserve Someone In Your Corner.
       </h1>
       <h3 class="text-2xl text-center wrap-balance">
         Join a community that's fighting for your business.
@@ -88,7 +90,7 @@ export const prerender = true;
         <WaitlistForm client:visible />
       </div>
     </div>
-    <div class="py-6 container-small mt-6">
+    <div class="py-6 container-small my-12">
       <h2 class="text-4xl font-bold mb-4">🤔 FAQs</h2>
       <FAQ client:visible />
     </div>
@@ -100,6 +102,6 @@ export const prerender = true;
     text-wrap: balance;
   }
   .container-small {
-    @apply px-8 mx-auto max-w-4xl w-full;
+    @apply px-4 md:px-8 mx-auto max-w-4xl w-full;
   }
 </style>
