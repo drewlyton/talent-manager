@@ -23,7 +23,7 @@ export default function WaitlistForm() {
   }
 
   return (
-    <form onSubmit={submit} className="max-w-lg w-full">
+    <form onSubmit={submit} className="md:max-w-lg w-full">
       <fieldset disabled={disabled} className="flex flex-col md:flex-row gap-3">
         <label aria-label="Your email" className="w-full">
           <Input
