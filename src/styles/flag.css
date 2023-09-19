@@ -1,0 +1,29 @@
+@keyframes oscillate {
+  from {
+    transform: translateY(var(--billow));
+  }
+  to {
+    transform: translateY(calc(var(--billow) * -1));
+  }
+}
+
+.flag {
+  display: flex;
+  flex-direction: row-reverse;
+  aspect-ratio: 3 / 1.5;
+}
+
+.flag-column {
+  flex: 1;
+  background: linear-gradient(
+    to bottom,
+    #005effc4 0%,
+    #005eff 50%,
+    #ffdd00 50%,
+    #ffdd00dd 100%
+  );
+  animation: oscillate 700ms infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: backwards;
+}

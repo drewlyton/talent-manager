@@ -5,6 +5,7 @@ import Hero from "../components/landing/Hero.astro";
 import FAQ from "../components/landing/FAQ.tsx";
 import WaitlistForm from "@/components/WaitlistForm";
 import Affiliate from "@/components/landing/Russian";
+import "@/styles/flag.css";
 
 export const prerender = true;
 ---
@@ -29,12 +30,11 @@ export const prerender = true;
               inbound offers.
             </Paragraph>
             <Paragraph>
-              We automatically mark potential spam, and if you never want to see
-              another affiliate deal in your life, hiding them is just a few
-              clicks away.
+              We automatically flag potential spam and let you filter by price,
+              date and deal type.
             </Paragraph>
           </div>
-          <div class="md:flex-1 w-full md:max-w-[40vw]">
+          <div class="md:flex-1 w-full md:max-w-[32rem] md:min-w-[20rem]">
             <Affiliate client:load />
           </div>
         </div>
