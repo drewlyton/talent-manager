@@ -4,6 +4,7 @@ import Paragraph from "../components/landing/Paragraph.astro";
 import Hero from "../components/landing/Hero.astro";
 import FAQ from "../components/landing/FAQ.tsx";
 import WaitlistForm from "@/components/WaitlistForm";
+import Affiliate from "@/components/landing/Russian";
 
 export const prerender = true;
 ---
@@ -11,25 +12,32 @@ export const prerender = true;
 <Layout>
   <main class="dark:text-white text-lg">
     <Hero />
-    <div class="flex flex-col gap-24 mb-24">
+    <div class="flex flex-col gap-[25vh] mb-[25vh]">
       <div
         class="container py-6 flex flex-col justify-center mt-2 wrap-balance"
       >
-        <h2 class="text-5xl font-bold mb-4">
-          👋 Say Goodbye to Sh*t Affiliate Deals from Russian Mobile Game
-          Spammers.
-        </h2>
-        <Paragraph>
-          <code>Repbot</code> asks brands for the important deal details <i
-            >upfront</i
-          >. This enables you to filter out the noise when viewing your inbound
-          offers.
-        </Paragraph>
-        <Paragraph>
-          No more wasting time scouring the internet trying to see if a company
-          or product is legit. And if you never want to see another affiliate
-          deal in your life, hiding them is just a click away.
-        </Paragraph>
+        <div class="flex flex-col gap-6 md:flex-row md:items-start">
+          <div class="md:flex-1">
+            <h2 class="text-5xl font-bold mb-4">
+              👋 Say Goodbye to Sh*t Deals from Russian Spammers and NFT
+              Grifters.
+            </h2>
+            <Paragraph>
+              <code>Repbot</code> asks brands for the important details <i
+                >upfront</i
+              >. This enables you to filter out the noise when viewing your
+              inbound offers.
+            </Paragraph>
+            <Paragraph>
+              We automatically mark potential spam, and if you never want to see
+              another affiliate deal in your life, hiding them is just a few
+              clicks away.
+            </Paragraph>
+          </div>
+          <div class="md:flex-1 w-full md:max-w-[40vw]">
+            <Affiliate client:load />
+          </div>
+        </div>
       </div>
       <div class="container py-6 wrap-balance">
         <h2 class="text-5xl font-bold mb-4">
@@ -76,15 +84,15 @@ export const prerender = true;
       </div>
     </div>
     <div
-      class="bg-slate-800 text-white dark py-24 px-4 md:px-8 flex flex-col items-center gap-6"
+      class="bg-slate-800 text-white dark py-32 px-4 md:px-8 flex flex-col items-center gap-6"
     >
       <h1
         class="text-5xl lg:text-6xl font-bold text-center wrap-balance max-w-4xl"
       >
-        🥊 You Deserve Someone In Your Corner.
+        🥊 We All Deserve Someone In Our Corner.
       </h1>
       <h3 class="text-2xl text-center wrap-balance text-slate-200">
-        Join a community that's fighting for your business.
+        Join a coop that's fighting for a fairer deal.
       </h3>
       <div class="w-full flex justify-center mt-4">
         <WaitlistForm client:visible />
@@ -102,6 +110,6 @@ export const prerender = true;
     text-wrap: balance;
   }
   .container {
-    @apply px-4 md:px-8 mx-auto max-w-4xl w-full;
+    @apply max-w-7xl;
   }
 </style>
