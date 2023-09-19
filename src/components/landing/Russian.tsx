@@ -44,7 +44,13 @@ export default function Affiliate() {
                 <RepbotLookUp className="w-12 absolute bottom-0 left-[3px]" />
               </div>
             </div>
-            <div className="absolute border-[0.75px] bottom-16 left-0 w-full"></div>
+            <div className="absolute border-t bottom-0 h-16 dark:bg-slate-800 z-10 left-0 w-full"></div>
+            <div>
+              <div className="firework"></div>
+
+              <div className="firework"></div>
+              <div className="firework"></div>
+            </div>
           </div>
         </div>
       </div>
