@@ -34,17 +34,17 @@ export default function Affiliate() {
           </div>
         </div>
         <div className="h-[19rem] z-0 overflow-hidden">
-          <div className="bg-slate-800 rounded-md px-4 py-6 h-full relative">
-            <div className="w-[5rem] absolute bottom-24 left-[calc(35%-5rem)]">
+          <div className=" rounded-md px-4 py-6 h-full relative">
+            <div className="w-[5rem] absolute bottom-8 left-[calc(35%-5rem)]">
               <Flag />
             </div>
-            <div className="absolute bottom-16 right-[calc(65%+2px)]">
+            <div className="absolute bottom-0 right-[calc(65%+2px)]">
               <div className="relative">
                 <Flagpole className="h-20 absolute bottom-0 left-0" />
                 <RepbotLookUp className="w-12 absolute bottom-0 left-[3px]" />
               </div>
             </div>
-            <div className="absolute border-t bottom-0 h-16 dark:bg-slate-800 z-[5] left-0 w-full"></div>
+            <div className="absolute border-t bottom-0 dark:bg-slate-900 z-[5] left-0 w-full"></div>
             <div>
               <div className="firework"></div>
 
