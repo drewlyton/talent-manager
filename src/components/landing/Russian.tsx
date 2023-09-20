@@ -23,9 +23,9 @@ export default function Affiliate() {
       </div>
       <div className="relative">
         <div
-          className={`top-0 inset-0 absolute z-10 dark:bg-slate-900 bg-slate-100 h-fit ${
+          className={`${
             hideAffiliate ? "opacity-0" : ""
-          }`}
+          } transition-opacity z-10 dark:bg-slate-900 bg-slate-100 h-fit`}
         >
           <div className="flex flex-col gap-3">
             <DealCard title="Axie Forever" />
@@ -33,7 +33,10 @@ export default function Affiliate() {
             <DealCard title="CryptoPuppies" type="CPM" />
           </div>
         </div>
-        <div className="h-[19rem] z-0 overflow-hidden">
+        <div
+          className="h-[19rem] absolute w-full top-0 z-0 overflow-hidden"
+          hidden={!hideAffiliate}
+        >
           <div className=" rounded-md px-4 py-6 h-full relative">
             <div className="w-[5rem] absolute bottom-8 left-[calc(35%-5rem)]">
               <Flag />

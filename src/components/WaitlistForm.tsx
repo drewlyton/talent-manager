@@ -34,7 +34,7 @@ export default function WaitlistForm() {
             required
           />
         </label>
-        <Button size={"lg"} className="whitespace-nowrap">
+        <Button size={"lg"} className="whitespace-nowrap" loading={disabled}>
           Sign Up
         </Button>
         <Honeypot />

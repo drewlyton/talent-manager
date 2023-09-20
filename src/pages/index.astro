@@ -5,6 +5,7 @@ import Hero from "../components/landing/Hero.astro";
 import FAQ from "../components/landing/FAQ.tsx";
 import WaitlistForm from "@/components/WaitlistForm";
 import Affiliate from "@/components/landing/Russian";
+import Negotiate from "@/components/landing/Negotiate";
 import "@/styles/flag.css";
 
 export const prerender = true;
@@ -20,8 +21,7 @@ export const prerender = true;
         <div class="flex flex-col gap-6 md:flex-row md:items-start">
           <div class="md:flex-1">
             <h2 class="text-5xl font-bold mb-4">
-              👋 Say Goodbye to Sh*t Deals from Russian Spammers and NFT
-              Grifters.
+              👋 Say Goodbye to Sh*t Deals from NFT Mobile Game Grifters.
             </h2>
             <Paragraph>
               <code>Repbot</code> asks brands for the important details <i
@@ -40,20 +40,28 @@ export const prerender = true;
         </div>
       </div>
       <div class="container py-6 wrap-balance">
-        <h2 class="text-5xl font-bold mb-4">
-          💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
-          Negotiator.
-        </h2>
-        <Paragraph>
-          <code>Repbot</code> automatically negotiates higher rates from brands
-          on your behalf. You tell us your minimum rate and social stats, and
-          we'll use previous deal data to get you the best offer possible.
-        </Paragraph>
-        <Paragraph>
-          Brands can still submit offers below industry standard and you can
-          still take them - our goal in negotiation is simply to advocate for
-          fair pay.
-        </Paragraph>
+        <div class="flex flex-col gap-6 md:flex-row md:items-start">
+          <div class="md:flex-1">
+            <h2 class="text-5xl font-bold mb-4">
+              💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
+              Negotiator.
+            </h2>
+            <Paragraph>
+              <code>Repbot</code> automatically negotiates higher rates from
+              brands on your behalf. You tell us your minimum rate and social
+              stats, and we'll use previous deal data to get you the best offer
+              possible.
+            </Paragraph>
+            <Paragraph>
+              Brands can still submit offers below industry standard and you can
+              still take them - our goal in negotiation is simply to advocate
+              for fair pay.
+            </Paragraph>
+          </div>
+          <div class="md:flex-1 w-full md:max-w-[32rem] md:min-w-[20rem]">
+            <Negotiate client:load />
+          </div>
+        </div>
       </div>
       <div class="container py-6 wrap-balance">
         <h2 class="text-5xl font-bold mb-4">
@@ -92,7 +100,7 @@ export const prerender = true;
         🥊 We All Deserve Someone In Our Corner.
       </h1>
       <h3 class="text-2xl text-center wrap-balance text-slate-200">
-        Join a coop that's fighting for a fairer deal.
+        Join a co-op that's fighting for a fairer deal for creators.
       </h3>
       <div class="w-full flex justify-center mt-4">
         <WaitlistForm client:visible />
