@@ -25,7 +25,7 @@ export default function Affiliate() {
         <div
           className={`${
             hideAffiliate ? "opacity-0" : ""
-          } transition-opacity z-10 dark:bg-slate-900 bg-slate-100 h-fit`}
+          } z-10 h-fit bg-slate-100 transition-opacity dark:bg-slate-900`}
         >
           <div className="flex flex-col gap-3">
             <DealCard title="Axie Forever" />
@@ -34,25 +34,25 @@ export default function Affiliate() {
           </div>
         </div>
         <div
-          className="h-[19rem] absolute w-full top-0 z-0 overflow-hidden"
+          className="absolute top-0 z-0 h-[19rem] w-full overflow-hidden"
           hidden={!hideAffiliate}
         >
-          <div className=" rounded-md px-4 py-6 h-full relative">
-            <div className="w-[5rem] absolute bottom-8 left-[calc(35%-5rem)]">
+          <div className=" relative h-full rounded-md px-4 py-6">
+            <div className="absolute bottom-8 left-[calc(35%-5rem)] w-[5rem]">
               <Flag />
             </div>
             <div className="absolute bottom-0 right-[calc(65%+2px)]">
               <div className="relative">
-                <Flagpole className="h-20 absolute bottom-0 left-0" />
-                <RepbotLookUp className="w-12 absolute bottom-0 left-[3px]" />
+                <Flagpole className="absolute bottom-0 left-0 h-20" />
+                <RepbotLookUp className="absolute bottom-0 left-[3px] w-12" />
               </div>
             </div>
-            <div className="absolute border-t bottom-0 dark:bg-slate-900 z-[5] left-0 w-full"></div>
+            <div className="absolute bottom-0 left-0 z-[5] w-full border-t dark:bg-slate-900"></div>
             <div>
-              <div className="firework"></div>
+              {/* <div className="firework"></div>
 
               <div className="firework"></div>
-              <div className="firework"></div>
+              <div className="firework"></div> */}
             </div>
           </div>
         </div>
@@ -63,16 +63,16 @@ export default function Affiliate() {
 
 function DealCard({ title = "", type = "Affiliate" }) {
   return (
-    <div className="border dark:border-slate-400 rounded-md p-4 flex flex-col gap-2">
+    <div className="flex flex-col gap-2 rounded-md border p-4 dark:border-slate-400">
       <div className="flex items-center">
         <h4 className="flex-1 ">{title}</h4>
         <p className="font-mono">$_</p>
       </div>
       <div className="flex items-center gap-2 uppercase">
-        <div className="text-xs border border-yellow-500 rounded inline-block px-2 py-1 text-yellow-500">
+        <div className="inline-block rounded border border-yellow-500 px-2 py-1 text-xs text-yellow-500">
           Spam
         </div>
-        <div className="text-xs border border-slate-300 text-slate-300 rounded inline-block px-2 py-1">
+        <div className="inline-block rounded border border-slate-300 px-2 py-1 text-xs text-slate-300">
           {type}
         </div>
       </div>

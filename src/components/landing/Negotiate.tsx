@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Slider } from "../ui/slider";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 
 function validateRate(rate: number) {
   return rate;
@@ -33,7 +34,7 @@ export default function Negotiate() {
   }, []);
   return (
     <form className="flex flex-col gap-3" onSubmit={submit}>
-      <h3 className="text-xl uppercase font-mono">Try it out</h3>
+      <h3 className="font-mono text-xl uppercase">Try it out</h3>
       <div className="max-w-lg">
         <div>
           <div>${minRate}</div>
@@ -45,15 +46,12 @@ export default function Negotiate() {
             step={50}
           />
         </div>
-        <div>
-          <div>{audienceSize}</div>
-          <Slider
-            value={audienceSize}
-            onValueChange={(e) => setAudienceSize(e)}
-            min={5000}
-            max={1000000}
-            step={10000}
-          />
+        <div className="my-12">
+          <RadioGroup defaultValue="mid">
+            <CreatorOption header="Mid Sized" value="mid" />
+            <CreatorOption header="Small Sized" value="small" />
+            <CreatorOption header="Big time" value="big" />
+          </RadioGroup>
         </div>
 
         <hr className="my-6 dark:border-slate-400" />
@@ -64,9 +62,9 @@ export default function Negotiate() {
             onChange={(e) => setRate(parseInt(e.target.value))}
             type="number"
             name="rate"
-            className="flex-1 rounded-l rounded-r-none text-xl py-6 focus-visible:ring-0"
+            className="flex-1 rounded-l rounded-r-none py-6 text-xl focus-visible:ring-0"
           />
-          <div className="dark:bg-slate-600 h-full px-3 rounded-r text-base py-3">
+          <div className="h-full rounded-r px-3 py-3 text-base dark:bg-slate-600">
             $USD
           </div>
         </div>
@@ -75,5 +73,21 @@ export default function Negotiate() {
         <Button loading={loading}>Submit Offer</Button>
       </div>
     </form>
+  );
+}
+
+function CreatorOption({ value, header }: { value: string; header: string }) {
+  return (
+    <div className="flex items-start rounded-md border hover:cursor-pointer dark:border-slate-500">
+      <div className="py-3 pl-4">
+        <RadioGroupItem value={value} id={value} />
+      </div>
+      <label
+        htmlFor={value}
+        className="flex-1 px-4  py-3 pl-3 hover:cursor-pointer"
+      >
+        <div className=" text-xl">{header}</div>
+      </label>
+    </div>
   );
 }
