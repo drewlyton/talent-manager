@@ -12,38 +12,14 @@ export const prerender = true;
 ---
 
 <Layout>
-  <main class="dark:text-white text-lg">
+  <main class="text-lg dark:text-white">
     <Hero />
-    <div class="flex flex-col gap-10 mb-10 md:gap-[25vh] md:mb-[25vh]">
-      <div
-        class="container py-6 flex flex-col justify-center mt-2 wrap-balance"
-      >
+    <div class="mb-10 flex flex-col gap-10 md:mb-[25vh] md:gap-[25vh]">
+      <div class="wrap-balance container mt-2 py-6">
         <div class="flex flex-col gap-6 md:flex-row md:items-start">
           <div class="md:flex-1">
-            <h2 class="text-5xl font-bold mb-4">
-              👋 Say Goodbye to Sh*t Deals from NFT Mobile Game Grifters.
-            </h2>
-            <Paragraph>
-              <code>Repbot</code> asks brands for the important details <i
-                >upfront</i
-              >. This enables you to filter out the noise when viewing your
-              inbound offers.
-            </Paragraph>
-            <Paragraph>
-              We automatically flag potential spam and let you filter by price,
-              date and deal type.
-            </Paragraph>
-          </div>
-          <div class="md:flex-1 w-full md:max-w-[32rem] md:min-w-[20rem]">
-            <Affiliate client:load />
-          </div>
-        </div>
-      </div>
-      <div class="container py-6 wrap-balance">
-        <div class="flex flex-col gap-6 md:flex-row md:items-start">
-          <div class="md:flex-1">
-            <h2 class="text-5xl font-bold mb-4">
-              💪 Maximize Your Sponsorship Revenue with a Ruthless, Informed
+            <h2 class="mb-4 text-5xl font-bold">
+              💪 Maximize Your Sponsorship Revenue with a Polite, Informed
               Negotiator.
             </h2>
             <Paragraph>
@@ -58,13 +34,35 @@ export const prerender = true;
               for fair pay.
             </Paragraph>
           </div>
-          <div class="md:flex-1 w-full md:max-w-[32rem] md:min-w-[20rem]">
+          <div class="w-full md:min-w-[20rem] md:max-w-[32rem] md:flex-1">
             <Negotiate client:load />
           </div>
         </div>
       </div>
-      <div class="container py-6 wrap-balance">
-        <h2 class="text-5xl font-bold mb-4">
+      <div class="wrap-balance container py-6">
+        <div class="flex flex-col gap-6 md:flex-row md:items-start">
+          <div class="md:flex-1">
+            <h2 class="mb-4 text-5xl font-bold">
+              👋 Say Goodbye to Sh*t Deals from NFT Mobile Game Grifters.
+            </h2>
+            <Paragraph>
+              <code>Repbot</code> asks brands for the important details <i
+                >upfront</i
+              >. This enables you to filter out the noise when viewing your
+              inbound offers.
+            </Paragraph>
+            <Paragraph>
+              We automatically flag potential spam and let you filter by price,
+              date and deal type.
+            </Paragraph>
+          </div>
+          <div class="w-full md:min-w-[20rem] md:max-w-[32rem] md:flex-1">
+            <Affiliate client:load />
+          </div>
+        </div>
+      </div>
+      <div class="wrap-balance container py-6">
+        <h2 class="mb-4 text-5xl font-bold">
           ⚖️ Compare Deals at a Glance, Accept the Best Fit, & Get Back to Work.
         </h2>
         <Paragraph>
@@ -78,8 +76,8 @@ export const prerender = true;
           run your business.
         </Paragraph>
       </div>
-      <div class="container py-6 wrap-balance">
-        <h2 class="text-5xl font-bold mb-4">🔥 Fire Us Whenever.</h2>
+      <div class="wrap-balance container py-6">
+        <h2 class="mb-4 text-5xl font-bold">🔥 Fire Us Whenever.</h2>
         <Paragraph>
           <code>Repbot</code> exists so that you never have to sign with a
           manager that will take 15% of your business in exchange for barely
@@ -92,22 +90,22 @@ export const prerender = true;
       </div>
     </div>
     <div
-      class="bg-slate-800 text-white dark py-32 px-4 md:px-8 flex flex-col items-center gap-6"
+      class="dark flex flex-col items-center gap-6 bg-slate-800 px-4 py-32 text-white md:px-8"
     >
       <h1
-        class="text-5xl lg:text-6xl font-bold text-center wrap-balance max-w-4xl"
+        class="wrap-balance max-w-4xl text-center text-5xl font-bold lg:text-6xl"
       >
         🥊 We All Deserve Someone In Our Corner.
       </h1>
-      <h3 class="text-2xl text-center wrap-balance text-slate-200">
+      <h3 class="wrap-balance text-center text-2xl text-slate-200">
         Join a co-op that's fighting for a fairer deal for creators.
       </h3>
-      <div class="w-full flex justify-center mt-4">
+      <div class="mt-4 flex w-full justify-center">
         <WaitlistForm client:visible />
       </div>
     </div>
-    <div class="py-6 container my-20" id="faq">
-      <h2 class="text-4xl font-bold mb-4">🤔 FAQs</h2>
+    <div class="container my-20 py-6" id="faq">
+      <h2 class="mb-4 text-4xl font-bold">🤔 FAQs</h2>
       <FAQ client:visible />
     </div>
   </main>

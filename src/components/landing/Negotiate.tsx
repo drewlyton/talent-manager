@@ -1,9 +1,15 @@
-import { useEffect, useState, type FormEvent, useReducer } from "react";
+import {
+  useEffect,
+  useState,
+  type FormEvent,
+  useReducer,
+  useCallback,
+} from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Slider } from "../ui/slider";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { validateRate } from "@/lib/validateRate";
+import { calculateRange } from "@/lib/calculateRange";
 
 const profileDisplayName = {
   big: "Pepper",
@@ -11,64 +17,67 @@ const profileDisplayName = {
   small: "Tanya",
 } as const;
 
-type NegotiateState = {
-  firstSubmission: boolean;
-  acceptableRange: number[];
-  minRate: number;
-  offer: number;
-  response?: string | null;
-};
-
-type NegotiateAction = {
-  type: "submitOffer";
-  data: Partial<NegotiateState>;
-};
-
 export default function Negotiate() {
   const [loading, setLoading] = useState(false);
-
-  const [rate, setRate] = useState(1200);
-  const [minRate, setMinRate] = useState([2300]);
-  const [response, setResponse] = useState<string | null>(null);
-  const [submission, dispatch] = useReducer(
-    (prev: NegotiateState, action: NegotiateAction) => {
-      return prev;
-    },
-    {
-      firstSubmission: true,
-      acceptableRange: [0, 0],
-      minRate: 2300,
-      offer: 1200,
-    },
-  );
-
-  const [acceptableRange, setRange] = useState<number[] | null>(null);
+  const [responseState, setResponseState] = useState(0);
+  const [minRate, setMin] = useState(2300);
+  const [acceptableRange, setRange] = useState<number[] | undefined>();
+  const [profile, setProfile] = useState<CreatorSize>("mid");
+  const [prevOffer, setPrevOffer] = useState<number | null>(null);
 
   let timer: NodeJS.Timeout | undefined;
-  function submit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
+  const submit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setLoading(true);
+      let status = 0;
+      const formData = new FormData(e.target as HTMLFormElement);
+      const currentOffer = parseInt(formData.get("offer")?.toString() || "0");
+      setPrevOffer(currentOffer);
+      const profile = formData.get("profile") as CreatorSize;
+      setProfile(profile);
+      const minRate = parseInt(formData.get("min")?.toString() || "0");
+      const range =
+        acceptableRange || calculateRange(currentOffer, minRate, profile);
+      setRange(range);
+      const offerAcceptable = currentOffer > range[0];
 
-    const formData = new FormData(e.target as HTMLFormElement);
-    const rate = parseInt(formData.get("rate")?.toString() || "0");
-    const profile = formData.get("profile") as CreatorSize;
-    const minRate = parseInt(formData.get("min")?.toString() || "0");
+      const previousState = responseState;
 
-    const validation = validateRate(rate, minRate, profile);
+      let response = previousState;
+      if ((!previousState || previousState < 0) && offerAcceptable) {
+        response = 1;
+      } else if ((!previousState || previousState > 0) && !offerAcceptable) {
+        response = -1;
+      } else if (Math.abs(previousState) == 1 && prevOffer) {
+        console.log(previousState, prevOffer);
+        // If previous offer
+        if (currentOffer < prevOffer) {
+          response -= 1;
+        } else if (currentOffer > prevOffer) {
+          response += 1;
+        }
+      } else if (prevOffer) {
+        console.log(prevOffer, previousState);
+        if (previousState == -3) {
+        } else if (previousState == 3) {
+          if (currentOffer < prevOffer) {
+            response = 2;
+          }
+        } else {
+          if (currentOffer < prevOffer) {
+            response -= 1;
+          }
+        }
+      }
 
-    timer = setTimeout(() => {
-      if (validation.status < 0)
-        setResponse(
-          `👋 Hey friend, that offer is pretty low. ${profileDisplayName[profile]} usually accepts deals of this type for $${validation.acceptableRange[0]} to $${validation.acceptableRange[1]}. You can still submit this offer, but you may want to increase it to be more competitive.`,
-        );
-      if (validation.status >= 0)
-        setResponse(
-          `👋 Hey friend, that offer looks good. ${profileDisplayName[profile]} usually accepts deals of this type for $${validation.acceptableRange[0]} to $${validation.acceptableRange[1]}. This offer has a good chance of being accepted, but you may want to increase it to be more competitive.`,
-        );
-      setRange(validation.acceptableRange);
-      setLoading(false);
-    }, 500);
-  }
+      timer = setTimeout(() => {
+        setResponseState(response);
+        setLoading(false);
+      }, 500);
+    },
+    [prevOffer, acceptableRange, responseState],
+  );
   useEffect(() => {
     return () => {
       setLoading(false);
@@ -82,9 +91,9 @@ export default function Negotiate() {
         <div className="flex gap-3">
           <div>${minRate}</div>
           <Slider
-            value={minRate}
+            value={[minRate]}
             name="min"
-            onValueChange={(e) => setMinRate(e)}
+            onValueChange={(val) => setMin(val[0])}
             min={100}
             max={10000}
             step={50}
@@ -94,7 +103,11 @@ export default function Negotiate() {
       <div className="flex flex-col gap-2">
         <div className="font-mono text-sm">Creator Profile:</div>
         <div>
-          <RadioGroup defaultValue="mid" name="profile">
+          <RadioGroup
+            value={profile}
+            name="profile"
+            onValueChange={(val: CreatorSize) => setProfile(val)}
+          >
             <CreatorOption
               header="TikTok Tanya"
               value="small"
@@ -115,8 +128,9 @@ export default function Negotiate() {
             />
           </RadioGroup>
           <div className="mt-2 whitespace-normal text-xs text-slate-300">
-            * This form is for demonstration purposes only. Repbot's responses
-            and rates may not be representative of real world usage.
+            *This form simulates a back-and-forth negotiation experience. But in
+            practice, we only prompt brands once after their initial offer is
+            made.
           </div>
         </div>
       </div>
@@ -129,10 +143,9 @@ export default function Negotiate() {
         </div>
         <Input
           placeholder="What's your budget?"
-          value={rate}
-          onChange={(e) => setRate(parseInt(e.target.value))}
           type="number"
-          name="rate"
+          name="offer"
+          defaultValue={1200}
           required
           className="flex-1 rounded-l-none rounded-r py-6 text-xl focus-visible:ring-0"
         />
@@ -140,9 +153,13 @@ export default function Negotiate() {
       <div>
         <Button loading={loading}>Submit Offer</Button>
       </div>
-      {response && (
+      {responseState && (
         <div className="ml-auto mr-0 max-w-[90%] whitespace-normal rounded-md bg-slate-800 p-4 text-sm">
-          {response}
+          <Response
+            acceptableRange={acceptableRange}
+            profileName={profileDisplayName[profile]}
+            status={responseState}
+          />
         </div>
       )}
     </form>
@@ -150,6 +167,39 @@ export default function Negotiate() {
 }
 
 export type CreatorSize = "small" | "mid" | "big";
+
+function Response({
+  profileName,
+  acceptableRange,
+  status,
+}: {
+  profileName: string;
+  acceptableRange?: number[];
+  status: number;
+}) {
+  if (!acceptableRange) return <div>Now that's an enticing deal 👍!</div>;
+  switch (status) {
+    case 1:
+      return (
+        <div>{`👋 Hey friend, that offer looks good. ${profileName} usually accepts deals of this type for $${acceptableRange[0]} to $${acceptableRange[1]}. This offer has a good chance of being accepted, but you may want to increase it to be more competitive.`}</div>
+      );
+    case -1:
+      return (
+        <div>{`👋 Hey friend, that offer is pretty low. ${profileName} usually accepts deals of this type for $${acceptableRange[0]} to $${acceptableRange[1]}. You can still submit this offer, but you may want to increase it to be more competitive.`}</div>
+      );
+    case 2:
+      return <div>Harder to sell but in range</div>;
+    case -2:
+      return <div>Better but still too low</div>;
+    case 3:
+      return <div>Now that's a deal!</div>;
+    case -3:
+      return <div>Harder to sell and not in range</div>;
+    default:
+      console.log(status);
+      return <div>Unhandled case</div>;
+  }
+}
 
 function CreatorOption({
   value,
