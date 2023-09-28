@@ -34,7 +34,7 @@ export default function Affiliate() {
           </div>
         </div>
         <div
-          className="absolute top-0 z-0 h-[19rem] w-full overflow-hidden"
+          className="absolute top-0 z-0 h-[19rem] w-full overflow-hidden rounded-md bg-[#083D6B]"
           hidden={!hideAffiliate}
         >
           <div className=" relative h-full rounded-md px-4 py-6">
