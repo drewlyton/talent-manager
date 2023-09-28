@@ -17,10 +17,18 @@
   flex: 1;
   background: linear-gradient(
     to bottom,
-    #005effc4 0%,
-    #005eff 50%,
-    #ffdd00 50%,
-    #ffdd00dd 100%
+    #fe0e12 0%,
+    #fe0e12 16.6666%,
+    #fe9d18 16.6666%,
+    #fe9d18 33.3333%,
+    #ffff1d 33.3333%,
+    #ffff1d 50%,
+    #3bff1d 50%,
+    #3bff1d 66.6666%,
+    #0c9dff 66.6666%,
+    #0c9dff 83.3333%,
+    #6c3cff 83.3333%,
+    #6c3cff 100%
   );
   animation: oscillate 700ms infinite;
   animation-direction: alternate;

@@ -37,17 +37,18 @@ export default function Negotiate() {
       const profile = formData.get("profile") as CreatorSize;
       setProfile(profile);
       const minRate = parseInt(formData.get("min")?.toString() || "0");
+      console.log(minRate);
       const range =
         acceptableRange || calculateRange(currentOffer, minRate, profile);
       setRange(range);
-      const offerAcceptable = currentOffer > range[0];
+      const offerAcceptable = currentOffer >= range[0];
 
       const previousState = responseState;
 
       let response = previousState;
-      if ((!previousState || previousState < 0) && offerAcceptable) {
+      if (previousState < 0 && offerAcceptable) {
         response = 1;
-      } else if ((!previousState || previousState > 0) && !offerAcceptable) {
+      } else if (previousState > 0 && !offerAcceptable) {
         response = -1;
       } else if (Math.abs(previousState) == 1 && prevOffer) {
         console.log(previousState, prevOffer);
@@ -69,6 +70,12 @@ export default function Negotiate() {
             response -= 1;
           }
         }
+      } else if (previousState === 0) {
+        if (offerAcceptable) {
+          response = 1;
+        } else {
+          response = -1;
+        }
       }
 
       timer = setTimeout(() => {
@@ -88,7 +95,7 @@ export default function Negotiate() {
     <form className="flex flex-col gap-4" onSubmit={submit}>
       <div>
         <div className="mb-2 font-mono text-sm">Get Out of Bed Rate:</div>
-        <div className="flex gap-3">
+        <div className="hidden gap-3 md:flex">
           <div>${minRate}</div>
           <Slider
             value={[minRate]}
@@ -97,6 +104,20 @@ export default function Negotiate() {
             min={100}
             max={10000}
             step={50}
+          />
+        </div>
+        <div className="flex items-center md:hidden">
+          <div className="h-full rounded-l px-3 py-3 text-base dark:bg-slate-600">
+            $
+          </div>
+          <Input
+            placeholder="Minimum rate"
+            type="number"
+            name="min"
+            value={minRate.toString()}
+            onChange={(e) => setMin(parseInt(e.target.value) || 0)}
+            required
+            className="flex-1 rounded-l-none rounded-r py-6 text-xl focus-visible:ring-0"
           />
         </div>
       </div>
@@ -153,7 +174,7 @@ export default function Negotiate() {
       <div>
         <Button loading={loading}>Submit Offer</Button>
       </div>
-      {responseState && (
+      {!!responseState && (
         <div className="ml-auto mr-0 max-w-[90%] whitespace-normal rounded-md bg-slate-800 p-4 text-sm">
           <Response
             acceptableRange={acceptableRange}

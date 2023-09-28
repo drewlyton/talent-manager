@@ -1,7 +1,23 @@
 ---
+import { Slider } from "@/components/ui/slider";
 import Layout from "@/layouts/Layout.astro";
 
 export const prerender = true;
 ---
 
-<Layout><div>Hello</div></Layout>
+<Layout>
+  <main class="relative overflow-y-hidden text-lg dark:text-white">
+    <form class="container flex min-h-[350px] max-w-lg items-center">
+      <div class="grow">
+        <Slider
+          defaultValue={[1000]}
+          client:load
+          name="min"
+          min={100}
+          max={10000}
+          step={50}
+        />
+      </div>
+    </form>
+  </main>
+</Layout>
