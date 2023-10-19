@@ -13,9 +13,9 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>Repbot</title>
   </head>
-  <body class="dark:bg-slate-900 bg-slate-100 dark:text-white">
+  <body class="bg-slate-100 dark:bg-slate-900 dark:text-white">
     <nav
-      class="min-h-[60px] lg:min-h-[70px] border-b border-slate-400 flex items-center container font-mono text-sm md:text-base"
+      class="container flex min-h-[60px] items-center border-b border-slate-400 font-mono text-sm md:text-base lg:min-h-[70px]"
     >
       <div class="flex-1">
         <a href="/" class="flex items-center gap-2 md:gap-3"
@@ -40,13 +40,13 @@ import "../styles/global.css";
         <a
           href={DISCORD_LINK}
           target="_blank"
-          class="py-3 hover:underline hover:opacity-80">chat</a
+          class="py-3 hover:underline hover:opacity-80">contact</a
         >
       </div>
     </nav>
     <slot />
     <footer
-      class="text-center min-h-[40px] font-mono text-sm py-4 dark:bg-slate-800"
+      class="min-h-[40px] py-4 text-center font-mono text-sm dark:bg-slate-800"
     >
       Made with ❤️ by some internet radicals.
     </footer>
